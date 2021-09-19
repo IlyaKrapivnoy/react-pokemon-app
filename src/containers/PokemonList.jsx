@@ -20,7 +20,7 @@ const PokemonList = (props) => {
 
     const ShowData = () => {
         if (pokemonList.loading) {
-            return <p>Loading...</p>;
+            return <p className='loading'>Loading...</p>;
         }
 
         if (!_.isEmpty(pokemonList.data)) {
@@ -66,6 +66,11 @@ const PokemonList = (props) => {
                     pageRangeDisplayed={2}
                     marginPagesDisplayed={1}
                     onPageChange={(data) => FetchData(data.selected + 1)}
+                    containerClassName={'pagination'}
+                    pageLinkClassName={'page-link'}
+                    activeLinkClassName={'active-page-link'}
+                    previousLinkClassName={'prev'}
+                    nextLinkClassName={'next'}
                 />
             )}
         </div>
