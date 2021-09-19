@@ -1,36 +1,35 @@
 const DefaultState = {
     loading: false,
-    data: [],
+    data: {},
     errorMsg: '',
-    count: 0,
 };
 
-const PokemonListReducer = (state = DefaultState, action) => {
+const PokemonMultipleReducer = (state = DefaultState, action) => {
     switch (action.type) {
-        case 'POKEMON_LIST_LOADING':
+        case 'POKEMON_MULTIPLE_LOADING':
             return {
                 ...state,
                 loading: true,
                 errorMsg: '',
             };
-        case 'POKEMON_LIST_FAIL':
+        case 'POKEMON_MULTIPLE_FAIL':
             return {
                 ...state,
                 loading: false,
-                errorMsg: 'unable to get pokemon',
+                errorMsg: 'unable to find pokemon',
             };
-        case 'POKEMON_LIST_SUCCESS':
+        case 'POKEMON_MULTIPLE_SUCCESS':
             return {
                 ...state,
                 loading: false,
-                data: action.payload.results,
                 errorMsg: '',
-                count: action.payload.count,
+                data: {
+                    ...state.data,
+                    [action.pokemonName]: action.payload,
+                },
             };
 
         default:
             return state;
     }
 };
-
-export default PokemonListReducer;
