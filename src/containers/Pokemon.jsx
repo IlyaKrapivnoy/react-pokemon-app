@@ -18,12 +18,35 @@ const Pokemon = (props) => {
             const pokeData = pokemonState.data[pokemonName];
             return (
                 <div className={'pokemon-wrapper'}>
-                    <div className={'item'}></div>
-                    <h1>Sprites</h1>
-                    <img src={pokeData.sprites.front_default} alt='pokemon' />
-                    <img src={pokeData.sprites.back_default} alt='pokemon' />
-                    <img src={pokeData.sprites.front_shiny} alt='pokemon' />
-                    <img src={pokeData.sprites.back_shiny} alt='pokemon' />
+                    <div className={'item'}>
+                        <h2>Sprites</h2>
+                        <img
+                            src={pokeData.sprites.front_default}
+                            alt='pokemon'
+                        />
+                        <img
+                            src={pokeData.sprites.back_default}
+                            alt='pokemon'
+                        />
+                        <img src={pokeData.sprites.front_shiny} alt='pokemon' />
+                        <img src={pokeData.sprites.back_shiny} alt='pokemon' />
+                    </div>
+                    <div className={'item'}>
+                        <h2>Stats</h2>
+                        {pokeData.stats.map((el) => {
+                            return (
+                                <p>
+                                    {el.stat.name}: {el.base_stat}
+                                </p>
+                            );
+                        })}
+                    </div>
+                    <div className={'item'}>
+                        <h2>Abilities</h2>
+                        {pokeData.abilities.map((el) => {
+                            return <p>{el.ability.name}</p>;
+                        })}
+                    </div>
                 </div>
             );
         }
@@ -40,7 +63,7 @@ const Pokemon = (props) => {
     };
 
     return (
-        <div>
+        <div className={'poke'}>
             <h1>{pokemonName}</h1>
             {ShowData()}
         </div>
