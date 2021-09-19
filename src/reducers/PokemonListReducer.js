@@ -2,6 +2,7 @@ const DefaultState = {
     loading: false,
     data: [],
     errorMsg: '',
+    count: 0,
 };
 
 const PokemonListReducer = (state = DefaultState, action) => {
@@ -22,8 +23,9 @@ const PokemonListReducer = (state = DefaultState, action) => {
             return {
                 ...state,
                 loading: false,
-                data: action.payload,
+                data: action.payload.results,
                 errorMsg: '',
+                count: action.payload.count,
             };
 
         default:

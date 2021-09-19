@@ -2,13 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import { useEffect } from 'react';
 import { GetPokemonList } from '../actions/pokemonActions';
+import { Link } from 'react-router-dom';
 
 const PokemonList = () => {
     const dispatch = useDispatch();
     const pokemonList = useSelector((state) => state.PokemonList);
     useEffect(() => {
         FetchData(1);
-    });
+    }, []);
 
     const FetchData = (page = 1) => {
         dispatch(GetPokemonList(page));
@@ -16,7 +17,14 @@ const PokemonList = () => {
 
     const ShowData = () => {
         if (!_.isEmpty(pokemonList.data)) {
-            return <div>have data</div>;
+            return pokemonList.data.map((el) => {
+                return (
+                    <div>
+                        <p>{el.name}</p>
+                        <Link to={`/pokemon/${el.name}`}>View</Link>
+                    </div>
+                );
+            });
         }
 
         if (pokemonList.loading) {
