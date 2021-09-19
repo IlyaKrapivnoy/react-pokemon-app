@@ -21,3 +21,23 @@ nav a {
     color: #fff;
     text-decoration: none;
 }
+
+.list-wrapper {
+    width: 90%;
+    margin: auto;
+}
+
+.list-wrapper .pokemon-item {
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 2px solid coral;
+    border-radius: 7px;
+}
+
+.list-wrapper a {
+    color: #000;
+    text-decoration: none;
+}
