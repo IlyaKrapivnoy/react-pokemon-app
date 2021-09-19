@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import { GetPokemonList } from '../actions/pokemonActions';
 import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 const PokemonList = (props) => {
     const [search, setSearch] = useState('');
@@ -59,6 +60,13 @@ const PokemonList = (props) => {
                 </button>
             </div>
             {ShowData()}
+            {!_.isEmpty(pokemonList.data) && (
+                <ReactPaginate
+                    pageCount={Math.ceil(pokemonList.count / 15)}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
+                />
+            )}
         </div>
     );
 };
