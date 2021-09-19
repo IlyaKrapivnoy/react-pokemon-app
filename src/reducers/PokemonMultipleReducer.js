@@ -33,3 +33,5 @@ const PokemonMultipleReducer = (state = DefaultState, action) => {
             return state;
     }
 };
+
+export default PokemonMultipleReducer;

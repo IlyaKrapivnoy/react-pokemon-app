@@ -27,7 +27,6 @@ const PokemonList = () => {
                             </div>
                         );
                     })}
-                    ;
                 </div>
             );
         }
