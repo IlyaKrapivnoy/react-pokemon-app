@@ -15,7 +15,17 @@ const Pokemon = (props) => {
 
     const ShowData = () => {
         if (!_.isEmpty(pokemonState.data[pokemonName])) {
-            return <p>have data</p>;
+            const pokeData = pokemonState.data[pokemonName];
+            return (
+                <div className={'pokemon-wrapper'}>
+                    <div className={'item'}></div>
+                    <h1>Sprites</h1>
+                    <img src={pokeData.sprites.front_default} alt='pokemon' />
+                    <img src={pokeData.sprites.back_default} alt='pokemon' />
+                    <img src={pokeData.sprites.front_shiny} alt='pokemon' />
+                    <img src={pokeData.sprites.back_shiny} alt='pokemon' />
+                </div>
+            );
         }
 
         if (pokemonState.loading) {
