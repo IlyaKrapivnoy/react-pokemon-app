@@ -53,6 +53,14 @@ nav a {
     justify-content: space-between;
 }
 
-.item {
+.pokemon-wrapper .item {
     width: 30%;
+}
+
+.search-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 }
