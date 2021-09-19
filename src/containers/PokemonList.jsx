@@ -19,6 +19,10 @@ const PokemonList = (props) => {
     };
 
     const ShowData = () => {
+        if (pokemonList.loading) {
+            return <p>Loading...</p>;
+        }
+
         if (!_.isEmpty(pokemonList.data)) {
             return (
                 <div className={'list-wrapper'}>
@@ -32,10 +36,6 @@ const PokemonList = (props) => {
                     })}
                 </div>
             );
-        }
-
-        if (pokemonList.loading) {
-            return <p>Loading...</p>;
         }
 
         if (pokemonList.errorMsg !== '') {
@@ -65,6 +65,7 @@ const PokemonList = (props) => {
                     pageCount={Math.ceil(pokemonList.count / 15)}
                     pageRangeDisplayed={2}
                     marginPagesDisplayed={1}
+                    onPageChange={(data) => FetchData(data.selected + 1)}
                 />
             )}
         </div>
