@@ -11,7 +11,6 @@ const PokemonListReducer = (state = DefaultState, action) => {
             return {
                 ...state,
                 loading: true,
-                errorMsg: '',
             };
         case 'POKEMON_LIST_FAIL':
             return {

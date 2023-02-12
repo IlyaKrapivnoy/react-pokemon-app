@@ -26,14 +26,12 @@ const PokemonList = (props) => {
         if (!_.isEmpty(pokemonList.data)) {
             return (
                 <div className={'list-wrapper'}>
-                    {pokemonList.data.map((el) => {
-                        return (
-                            <div className={'pokemon-item'}>
-                                <p>{el.name}</p>
-                                <Link to={`/pokemon/${el.name}`}>View</Link>
-                            </div>
-                        );
-                    })}
+                    {pokemonList.data.map((el) => (
+                        <div className={'pokemon-item'}>
+                            <p>{el.name}</p>
+                            <Link to={`/pokemon/${el.name}`}>View</Link>
+                        </div>
+                    ))}
                 </div>
             );
         }
@@ -46,7 +44,7 @@ const PokemonList = (props) => {
     };
 
     return (
-        <div>
+        <>
             <div className='search-wrapper'>
                 <p>Search</p>
                 <input
@@ -73,7 +71,7 @@ const PokemonList = (props) => {
                     nextLinkClassName={'next'}
                 />
             )}
-        </div>
+        </>
     );
 };
 

@@ -10,7 +10,6 @@ const PokemonMultipleReducer = (state = DefaultState, action) => {
             return {
                 ...state,
                 loading: true,
-                errorMsg: '',
             };
         case 'POKEMON_MULTIPLE_FAIL':
             return {
@@ -22,7 +21,6 @@ const PokemonMultipleReducer = (state = DefaultState, action) => {
             return {
                 ...state,
                 loading: false,
-                errorMsg: '',
                 data: {
                     ...state.data,
                     [action.pokemonName]: action.payload,
