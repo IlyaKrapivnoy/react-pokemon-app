@@ -11,7 +11,7 @@ const Pokemon = (props) => {
 
     useEffect(() => {
         dispatch(GetPokemon(pokemonName));
-    }, []);
+    }, [dispatch, pokemonName]);
 
     const ShowData = () => {
         if (!_.isEmpty(pokemonState.data[pokemonName])) {
@@ -33,19 +33,17 @@ const Pokemon = (props) => {
                     </div>
                     <div className={'item'}>
                         <h2>Stats</h2>
-                        {pokeData.stats.map((el) => {
-                            return (
-                                <p>
-                                    {el.stat.name}: {el.base_stat}
-                                </p>
-                            );
-                        })}
+                        {pokeData.stats.map((el) => (
+                            <p>
+                                {el.stat.name}: {el.base_stat}
+                            </p>
+                        ))}
                     </div>
                     <div className={'item'}>
                         <h2>Abilities</h2>
-                        {pokeData.abilities.map((el) => {
-                            return <p>{el.ability.name}</p>;
-                        })}
+                        {pokeData.abilities.map((el) => (
+                            <p>{el.ability.name}</p>
+                        ))}
                     </div>
                 </div>
             );
